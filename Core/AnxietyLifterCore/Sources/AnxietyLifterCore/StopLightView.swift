@@ -9,11 +9,11 @@ import SwiftUI
 
 @available(iOS 13.0.0, *)
 public struct StopLightView: View {
-    public enum State {
-        case go
-        case stop
-        case caution
-        case none
+    public enum State: Int, Codable {
+        case go = 0
+        case stop = 1
+        case caution = 2
+        case none = 3
     }
     
     private let activeLight: State
@@ -47,7 +47,7 @@ public struct StopLightView: View {
                                 .foregroundColor(Color.green)
                                 .opacity(activeLight == .go ? 1.0 : 0.2)
                         }
-                        .padding([.top, .bottom], geometry.size.width * 0.2)                        
+                        .padding([.top, .bottom], geometry.size.width * 0.2)
                     )
                     .padding(geometry.size.width * 0.03)
                     .foregroundColor(.black).opacity(0.95)

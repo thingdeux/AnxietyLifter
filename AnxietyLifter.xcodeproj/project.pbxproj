@@ -111,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				56DE713B26C040940059BD7E /* Scenes */,
-				56DE713726C036D80059BD7E /* Services */,
 				56DE712526C036570059BD7E /* AnxietyLifterApp.swift */,
 				56DE712926C036580059BD7E /* Assets.xcassets */,
 				56DE712E26C036580059BD7E /* Info.plist */,
@@ -126,13 +125,6 @@
 				56DE712C26C036580059BD7E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		56DE713726C036D80059BD7E /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		56DE713B26C040940059BD7E /* Scenes */ = {

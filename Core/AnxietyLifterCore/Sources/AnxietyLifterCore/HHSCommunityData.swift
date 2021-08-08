@@ -5,6 +5,8 @@
 //  Created by Joshua Danger on 8/3/21.
 //
 
+import UIKit
+
 public struct HHSResponse: Decodable {
     public let features: [HHSDataWrapper]
     public var allCommunityData: [HHSCommunityData] {
@@ -98,7 +100,7 @@ public extension HHSCommunityData {
 
 // Namespaced Container Structs
 public extension HHSCommunityData {
-    struct MetaData {
+    struct MetaData: Codable {
         public let fipsCode: String
         public let county: String
         public let lastUpdated: Double
@@ -109,7 +111,7 @@ public extension HHSCommunityData {
         public let totalDeathsToNow: Int
     }
     
-    struct TestData {
+    struct TestData: Codable {
         public let positiveTestsInLast7Days: Int
         public let totalTestsInLast7Days: Int
         public let totalTestsPercentChange: Int
@@ -123,10 +125,19 @@ public extension HHSCommunityData {
         public let percentageCovidICUInpatient: Int
     }
     
-    struct CaseData {
+    struct CaseData: Codable {
         public let casesInTheLast7Days: Int
         public let deathsInTheLast7Days: Int
         public let percentChangeInCases: Int
         public let totalCasesToNow: Int
     }
+}
+
+@available(iOS 13.0.0, *)
+public struct AlertStateData: Codable {
+    public let state: StopLightView.State
+    public let associatedText: String
+    public let caseData: HHSCommunityData.CaseData
+    public let metaData: HHSCommunityData.MetaData
+    public let testData: HHSCommunityData.TestData
 }

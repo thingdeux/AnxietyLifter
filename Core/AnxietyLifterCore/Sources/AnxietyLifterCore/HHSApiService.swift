@@ -15,11 +15,15 @@ public class HHSApiService {
     
     private static let requestUri: URL = URL(string: url)!
     private var cancellable: Cancellable?
+    private init() {}
+    
+    
     public static let shared: HHSApiService = HHSApiService()
     
-    private init() {
-        
+    public enum Constants {
+        public static let appGroupName = "land.josh.anxietyLifter.storedContainer"
     }
+    
     
     public func acquireLatestData() -> Future<CommunityResponse, Error> {
         cancellable?.cancel()
@@ -51,6 +55,16 @@ public class HHSApiService {
                         print ("🌎 Received community data: \(data.allCommunityData).")
                         promise(.success(data.allCommunityData))
                     })
+        }
+    }
+    
+    func storeLatestData() {
+        
+    }
+    
+    public func retrieveLatestStoredData() -> Future <AlertStateData, Error> {
+        return Future<AlertStateData, Error> { [weak self] promise in
+            
         }
     }
 }
