@@ -63,6 +63,8 @@
 		56DE714F26C045190059BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DE715126C045190059BD7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56DE715B26C049C70059BD7E /* AnxietyLifterCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AnxietyLifterCore; path = Core/AnxietyLifterCore; sourceTree = "<group>"; };
+		56DE716626C085E00059BD7E /* AnxietyLifter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnxietyLifter.entitlements; sourceTree = "<group>"; };
+		56DE716726C086550059BD7E /* AnxietyLifterWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AnxietyLifterWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		56DE711926C036570059BD7E = {
 			isa = PBXGroup;
 			children = (
+				56DE716726C086550059BD7E /* AnxietyLifterWidgetExtension.entitlements */,
 				56DE715B26C049C70059BD7E /* AnxietyLifterCore */,
 				56DE712426C036570059BD7E /* AnxietyLifter */,
 				56DE714B26C045190059BD7E /* AnxietyLifterWidget */,
@@ -110,6 +113,7 @@
 		56DE712426C036570059BD7E /* AnxietyLifter */ = {
 			isa = PBXGroup;
 			children = (
+				56DE716626C085E00059BD7E /* AnxietyLifter.entitlements */,
 				56DE713B26C040940059BD7E /* Scenes */,
 				56DE712526C036570059BD7E /* AnxietyLifterApp.swift */,
 				56DE712926C036580059BD7E /* Assets.xcassets */,
@@ -419,6 +423,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnxietyLifter/AnxietyLifter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AnxietyLifter/Preview Content\"";
 				DEVELOPMENT_TEAM = E45L9XJM5K;
@@ -442,6 +447,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AnxietyLifter/AnxietyLifter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AnxietyLifter/Preview Content\"";
 				DEVELOPMENT_TEAM = E45L9XJM5K;
@@ -464,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AnxietyLifterWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E45L9XJM5K;
 				INFOPLIST_FILE = AnxietyLifterWidget/Info.plist;
@@ -472,7 +479,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.AnxietyLifterWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -485,6 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = AnxietyLifterWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E45L9XJM5K;
 				INFOPLIST_FILE = AnxietyLifterWidget/Info.plist;
@@ -493,7 +501,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.AnxietyLifterWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

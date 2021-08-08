@@ -14,8 +14,9 @@ struct MainView: View {
     var body: some View {
         VStack {
             Text("Forecast")
+                .foregroundColor(Color.white)
                 .font(.largeTitle)
-                .padding(.top)
+                .padding(.top, 46)
             
             HStack(spacing: 8) {
                 Rectangle()
@@ -51,7 +52,7 @@ struct MainView: View {
             .offset(y: -20)
             StopLightView(.caution).frame(width: 200, height: 400)
             Spacer()
-        }        
+        }
         .background(Color.black.opacity(0.9))
         .onAppear() { viewModel.onAppear() }
     }

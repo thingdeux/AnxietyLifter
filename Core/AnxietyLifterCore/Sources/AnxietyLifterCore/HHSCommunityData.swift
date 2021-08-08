@@ -23,24 +23,24 @@ public struct HHSCommunityData: Codable {
     // Case Data
     private let casesInTheLast7Days: Int
     private let deathsInTheLast7Days: Int
-    private let percentChangeInCases: Int
+    private let percentChangeInCases: Double
     private let totalCasesToNow: Int
     
     // Mortality Data
-    private let percentChangeInDeaths: Int
+    private let percentChangeInDeaths: Double
     private let totalDeathsToNow: Int
     
     // Hospital Data
     private let confirmedCovidAdmissionLast7Days: Int
     private let suspectedCovidAdmissionAdmissionsToHospitalLast7Days: Int
-    private let percentageVentilatorsChange: Int
-    private let percentageICUInpatient: Int
-    private let percentageCovidICUInpatient: Int
+    private let percentageVentilatorsChange: Double
+    private let percentageICUInpatient: Double
+    private let percentageCovidICUInpatient: Double
         
     // Test Data
-    private let positiveTestsInLast7Days: Int
-    private let totalTestsInLast7Days: Int
-    private let totalTestsPercentChange: Int
+    private let positiveTestsInLast7Days: Double
+    private let totalTestsInLast7Days: Double
+    private let totalTestsPercentChange: Double
     
     // MetaData
     private let fipsCode: String
@@ -107,28 +107,28 @@ public extension HHSCommunityData {
     }
     
     struct MortalityData {
-        public let percentChangeInDeaths: Int
+        public let percentChangeInDeaths: Double
         public let totalDeathsToNow: Int
     }
     
     struct TestData: Codable {
-        public let positiveTestsInLast7Days: Int
-        public let totalTestsInLast7Days: Int
-        public let totalTestsPercentChange: Int
+        public let positiveTestsInLast7Days: Double
+        public let totalTestsInLast7Days: Double
+        public let totalTestsPercentChange: Double
     }
     
     struct HospitalData {
         public let confirmedCovidAdmissionLast7Days: Int
         public let suspectedCovidAdmissionAdmissionsToHospitalLast7Days: Int
-        public let percentageVentilatorsChange: Int
-        public let percentageICUInpatient: Int
-        public let percentageCovidICUInpatient: Int
+        public let percentageVentilatorsChange: Double
+        public let percentageICUInpatient: Double
+        public let percentageCovidICUInpatient: Double
     }
     
     struct CaseData: Codable {
         public let casesInTheLast7Days: Int
         public let deathsInTheLast7Days: Int
-        public let percentChangeInCases: Int
+        public let percentChangeInCases: Double
         public let totalCasesToNow: Int
     }
 }
