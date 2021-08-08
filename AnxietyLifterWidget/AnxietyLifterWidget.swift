@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import AnxietyLifterCore
 
 struct Provider: IntentTimelineProvider {    
     func placeholder(in context: Context) -> SimpleEntry {
@@ -65,5 +66,9 @@ struct AnxietyLifterWidget_Previews: PreviewProvider {
     static var previews: some View {
         AnxietyLifterWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+        
+        StopLightView(.go)
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        
     }
 }

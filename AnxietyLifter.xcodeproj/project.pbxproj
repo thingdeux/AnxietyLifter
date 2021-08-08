@@ -21,6 +21,7 @@
 		56DE715626C045190059BD7E /* AnxietyLifterWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56DE714526C045190059BD7E /* AnxietyLifterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56DE715D26C04A240059BD7E /* AnxietyLifterCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56DE715C26C04A240059BD7E /* AnxietyLifterCore */; };
 		56DE715F26C04A2F0059BD7E /* AnxietyLifterCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56DE715E26C04A2F0059BD7E /* AnxietyLifterCore */; };
+		56DE716526C060BA0059BD7E /* StopLightViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE716426C060BA0059BD7E /* StopLightViewTwo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		56DE714F26C045190059BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DE715126C045190059BD7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56DE715B26C049C70059BD7E /* AnxietyLifterCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AnxietyLifterCore; path = Core/AnxietyLifterCore; sourceTree = "<group>"; };
+		56DE716426C060BA0059BD7E /* StopLightViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopLightViewTwo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				56DE713B26C040940059BD7E /* Scenes */,
 				56DE713726C036D80059BD7E /* Services */,
 				56DE712526C036570059BD7E /* AnxietyLifterApp.swift */,
+				56DE716426C060BA0059BD7E /* StopLightViewTwo.swift */,
 				56DE712926C036580059BD7E /* Assets.xcassets */,
 				56DE712E26C036580059BD7E /* Info.plist */,
 				56DE712B26C036580059BD7E /* Preview Content */,
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DE716526C060BA0059BD7E /* StopLightViewTwo.swift in Sources */,
 				56DE713D26C040A80059BD7E /* MainViewModel.swift in Sources */,
 				56DE712826C036570059BD7E /* MainView.swift in Sources */,
 				56DE712626C036570059BD7E /* AnxietyLifterApp.swift in Sources */,
