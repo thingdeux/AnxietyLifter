@@ -3,23 +3,66 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		56DE712626C036570059BD7E /* AnxietyLifterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE712526C036570059BD7E /* AnxietyLifterApp.swift */; };
-		56DE712826C036570059BD7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE712726C036570059BD7E /* ContentView.swift */; };
+		56DE712826C036570059BD7E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE712726C036570059BD7E /* MainView.swift */; };
 		56DE712A26C036580059BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DE712926C036580059BD7E /* Assets.xcassets */; };
 		56DE712D26C036580059BD7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DE712C26C036580059BD7E /* Preview Assets.xcassets */; };
+		56DE713D26C040A80059BD7E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE713C26C040A80059BD7E /* MainViewModel.swift */; };
+		56DE714826C045190059BD7E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DE714726C045190059BD7E /* WidgetKit.framework */; };
+		56DE714A26C045190059BD7E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DE714926C045190059BD7E /* SwiftUI.framework */; };
+		56DE714D26C045190059BD7E /* AnxietyLifterWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE714C26C045190059BD7E /* AnxietyLifterWidget.swift */; };
+		56DE715026C045190059BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DE714F26C045190059BD7E /* Assets.xcassets */; };
+		56DE715226C045190059BD7E /* AnxietyLifterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 56DE714E26C045190059BD7E /* AnxietyLifterWidget.intentdefinition */; };
+		56DE715326C045190059BD7E /* AnxietyLifterWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 56DE714E26C045190059BD7E /* AnxietyLifterWidget.intentdefinition */; };
+		56DE715626C045190059BD7E /* AnxietyLifterWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56DE714526C045190059BD7E /* AnxietyLifterWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		56DE715D26C04A240059BD7E /* AnxietyLifterCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56DE715C26C04A240059BD7E /* AnxietyLifterCore */; };
+		56DE715F26C04A2F0059BD7E /* AnxietyLifterCore in Frameworks */ = {isa = PBXBuildFile; productRef = 56DE715E26C04A2F0059BD7E /* AnxietyLifterCore */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56DE715426C045190059BD7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56DE711A26C036570059BD7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56DE714426C045190059BD7E;
+			remoteInfo = AnxietyLifterWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56DE715A26C045190059BD7E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				56DE715626C045190059BD7E /* AnxietyLifterWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		56DE712226C036570059BD7E /* AnxietyLifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnxietyLifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DE712526C036570059BD7E /* AnxietyLifterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyLifterApp.swift; sourceTree = "<group>"; };
-		56DE712726C036570059BD7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56DE712726C036570059BD7E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		56DE712926C036580059BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56DE712C26C036580059BD7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56DE712E26C036580059BD7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DE713C26C040A80059BD7E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		56DE714526C045190059BD7E /* AnxietyLifterWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnxietyLifterWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DE714726C045190059BD7E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		56DE714926C045190059BD7E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		56DE714C26C045190059BD7E /* AnxietyLifterWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyLifterWidget.swift; sourceTree = "<group>"; };
+		56DE714E26C045190059BD7E /* AnxietyLifterWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = AnxietyLifterWidget.intentdefinition; sourceTree = "<group>"; };
+		56DE714F26C045190059BD7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56DE715126C045190059BD7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56DE715B26C049C70059BD7E /* AnxietyLifterCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AnxietyLifterCore; path = Core/AnxietyLifterCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +70,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56DE715D26C04A240059BD7E /* AnxietyLifterCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DE714226C045190059BD7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DE714A26C045190059BD7E /* SwiftUI.framework in Frameworks */,
+				56DE715F26C04A2F0059BD7E /* AnxietyLifterCore in Frameworks */,
+				56DE714826C045190059BD7E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,7 +90,10 @@
 		56DE711926C036570059BD7E = {
 			isa = PBXGroup;
 			children = (
+				56DE715B26C049C70059BD7E /* AnxietyLifterCore */,
 				56DE712426C036570059BD7E /* AnxietyLifter */,
+				56DE714B26C045190059BD7E /* AnxietyLifterWidget */,
+				56DE714626C045190059BD7E /* Frameworks */,
 				56DE712326C036570059BD7E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				56DE712226C036570059BD7E /* AnxietyLifter.app */,
+				56DE714526C045190059BD7E /* AnxietyLifterWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,8 +110,9 @@
 		56DE712426C036570059BD7E /* AnxietyLifter */ = {
 			isa = PBXGroup;
 			children = (
+				56DE713B26C040940059BD7E /* Scenes */,
+				56DE713726C036D80059BD7E /* Services */,
 				56DE712526C036570059BD7E /* AnxietyLifterApp.swift */,
-				56DE712726C036570059BD7E /* ContentView.swift */,
 				56DE712926C036580059BD7E /* Assets.xcassets */,
 				56DE712E26C036580059BD7E /* Info.plist */,
 				56DE712B26C036580059BD7E /* Preview Content */,
@@ -69,6 +128,50 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		56DE713726C036D80059BD7E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		56DE713B26C040940059BD7E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				56DE714026C044D10059BD7E /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		56DE714026C044D10059BD7E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				56DE712726C036570059BD7E /* MainView.swift */,
+				56DE713C26C040A80059BD7E /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		56DE714626C045190059BD7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56DE714726C045190059BD7E /* WidgetKit.framework */,
+				56DE714926C045190059BD7E /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56DE714B26C045190059BD7E /* AnxietyLifterWidget */ = {
+			isa = PBXGroup;
+			children = (
+				56DE714C26C045190059BD7E /* AnxietyLifterWidget.swift */,
+				56DE714E26C045190059BD7E /* AnxietyLifterWidget.intentdefinition */,
+				56DE714F26C045190059BD7E /* Assets.xcassets */,
+				56DE715126C045190059BD7E /* Info.plist */,
+			);
+			path = AnxietyLifterWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,15 +182,40 @@
 				56DE711E26C036570059BD7E /* Sources */,
 				56DE711F26C036570059BD7E /* Frameworks */,
 				56DE712026C036570059BD7E /* Resources */,
+				56DE715A26C045190059BD7E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56DE715526C045190059BD7E /* PBXTargetDependency */,
+			);
+			name = AnxietyLifter;
+			packageProductDependencies = (
+				56DE715C26C04A240059BD7E /* AnxietyLifterCore */,
+			);
+			productName = AnxietyLifter;
+			productReference = 56DE712226C036570059BD7E /* AnxietyLifter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56DE714426C045190059BD7E /* AnxietyLifterWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56DE715726C045190059BD7E /* Build configuration list for PBXNativeTarget "AnxietyLifterWidgetExtension" */;
+			buildPhases = (
+				56DE714126C045190059BD7E /* Sources */,
+				56DE714226C045190059BD7E /* Frameworks */,
+				56DE714326C045190059BD7E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AnxietyLifter;
-			productName = AnxietyLifter;
-			productReference = 56DE712226C036570059BD7E /* AnxietyLifter.app */;
-			productType = "com.apple.product-type.application";
+			name = AnxietyLifterWidgetExtension;
+			packageProductDependencies = (
+				56DE715E26C04A2F0059BD7E /* AnxietyLifterCore */,
+			);
+			productName = AnxietyLifterWidgetExtension;
+			productReference = 56DE714526C045190059BD7E /* AnxietyLifterWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +227,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					56DE712126C036570059BD7E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					56DE714426C045190059BD7E = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -117,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				56DE712126C036570059BD7E /* AnxietyLifter */,
+				56DE714426C045190059BD7E /* AnxietyLifterWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +263,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		56DE714326C045190059BD7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DE715026C045190059BD7E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,12 +278,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56DE712826C036570059BD7E /* ContentView.swift in Sources */,
+				56DE713D26C040A80059BD7E /* MainViewModel.swift in Sources */,
+				56DE712826C036570059BD7E /* MainView.swift in Sources */,
 				56DE712626C036570059BD7E /* AnxietyLifterApp.swift in Sources */,
+				56DE715326C045190059BD7E /* AnxietyLifterWidget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56DE714126C045190059BD7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56DE714D26C045190059BD7E /* AnxietyLifterWidget.swift in Sources */,
+				56DE715226C045190059BD7E /* AnxietyLifterWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56DE715526C045190059BD7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56DE714426C045190059BD7E /* AnxietyLifterWidgetExtension */;
+			targetProxy = 56DE715426C045190059BD7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		56DE712F26C036580059BD7E /* Debug */ = {
@@ -265,6 +424,7 @@
 		56DE713226C036580059BD7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +447,7 @@
 		56DE713326C036580059BD7E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +462,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		56DE715826C045190059BD7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E45L9XJM5K;
+				INFOPLIST_FILE = AnxietyLifterWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.AnxietyLifterWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56DE715926C045190059BD7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = E45L9XJM5K;
+				INFOPLIST_FILE = AnxietyLifterWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = land.josh.AnxietyLifter.AnxietyLifterWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,7 +530,27 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		56DE715726C045190059BD7E /* Build configuration list for PBXNativeTarget "AnxietyLifterWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56DE715826C045190059BD7E /* Debug */,
+				56DE715926C045190059BD7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		56DE715C26C04A240059BD7E /* AnxietyLifterCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnxietyLifterCore;
+		};
+		56DE715E26C04A2F0059BD7E /* AnxietyLifterCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnxietyLifterCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56DE711A26C036570059BD7E /* Project object */;
 }
