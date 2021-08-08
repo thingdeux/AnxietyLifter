@@ -23,42 +23,33 @@ public struct StopLightView: View {
     }
     
     public var body: some View {
-        StopLightViewShapes(activeLight: activeLight)
-    }
-}
-
-@available(iOS 13.0.0, *)
-private struct StopLightViewShapes: View {
-    let activeLight: StopLightView.State
-    
-    var body: some View {
         GeometryReader { geometry in
             ZStack {
                 // Border
-                Capsule().foregroundColor(.gray)
+                Capsule()
+                    .foregroundColor(.gray)
+                    .padding(geometry.size.width * 0.02)
+                    
                 
                 // Inner Stop Light
                 Capsule()
                     .overlay (
-                        VStack {
+                        VStack(spacing: geometry.size.width * 0.05) {
                             Circle()
                                 .foregroundColor(.red)
                                 .opacity(activeLight == .stop ? 1.0 : 0.2)
-                                .padding([.bottom, .top], geometry.size.width * 0.011)
                             
                             Circle()
                                 .foregroundColor(.yellow)
                                 .opacity(activeLight == .caution ? 1.0 : 0.2)
-                                .padding([.bottom, .top], geometry.size.width * 0.011)
                             
                             Circle()
-                                .foregroundColor(.green)
+                                .foregroundColor(Color.green)
                                 .opacity(activeLight == .go ? 1.0 : 0.2)
-                                .padding([.bottom, .top], geometry.size.width * 0.011)
                         }
-                        .padding()
+                        .padding([.top, .bottom], geometry.size.width * 0.2)                        
                     )
-                    .padding()
+                    .padding(geometry.size.width * 0.03)
                     .foregroundColor(.black).opacity(0.95)
             }
         }

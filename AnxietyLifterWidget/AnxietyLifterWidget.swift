@@ -10,11 +10,13 @@ import SwiftUI
 import Intents
 import AnxietyLifterCore
 
-struct Provider: IntentTimelineProvider {    
+struct Provider: IntentTimelineProvider {
+    // Initial data on first load
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationIntent())
     }
 
+    // Some snapshot of data for a given time.
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         let entry = SimpleEntry(date: Date(), configuration: configuration)
         completion(entry)
@@ -45,20 +47,32 @@ struct AnxietyLifterWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        ZStack {
+            Color.black.opacity(0.90)
+            HStack(spacing: 0) {
+                StopLightView(.go)
+                    .frame(width: 80, height: 140)
+                    .previewContext(WidgetPreviewContext(family: .systemSmall))
+                    .padding(6)
+                
+                Text("🤙🏽")
+                    .font(.body)
+                    .foregroundColor(.white)
+            }
+        }
     }
 }
 
 @main
 struct AnxietyLifterWidget: Widget {
-    let kind: String = "AnxietyLifterWidget"
+    let kind: String = "AnxietyLifterWidget2"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             AnxietyLifterWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Anxiety Lifter")
+        .description("Free your Covid-19 Anxiety")
     }
 }
 
@@ -66,9 +80,5 @@ struct AnxietyLifterWidget_Previews: PreviewProvider {
     static var previews: some View {
         AnxietyLifterWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        
-        StopLightView(.go)
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-        
     }
 }
