@@ -16,6 +16,18 @@ public enum CautionLevel: Int, Codable {
 }
 
 @available(iOS 13.0.0, *)
+extension CautionLevel: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .none: return "None"
+        case .go: return "Go"
+        case .caution: return "Caution"
+        case .stop: return "Stop"
+        }
+    }
+}
+
+@available(iOS 13.0.0, *)
 public struct StopLightView: View {
     private let activeLight: CautionLevel
     

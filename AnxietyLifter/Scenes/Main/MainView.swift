@@ -46,6 +46,7 @@ struct MainView: View {
                     )
                     .foregroundColor(.green)
             }
+            .onAppear() { viewModel.onAppear() }
             .frame(height: 40)
             .padding(.top, 20)
             .padding([.leading, .trailing], 10)
@@ -54,7 +55,6 @@ struct MainView: View {
             Spacer()
         }
         .background(Color.black.opacity(0.9))
-        .onAppear() { viewModel.onAppear() }
     }
 }
 

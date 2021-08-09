@@ -31,10 +31,18 @@ public struct AlertStateData: Codable {
 @available(iOS 13.0.0, *)
 extension AlertStateData {
     static func analyze(communityData: HHSCommunityData) -> AnyPublisher<AlertStateData, Never> {
-        return processTestCases(communityData.testData)
-            .combineLatest(processMortalityData(communityData.mortalityData), processHospitalData(communityData.hospitalData))
+        return processTestCases(communityData.testData).first()
+            .combineLatest(processMortalityData(communityData.mortalityData).first(),
+                           processHospitalData(communityData.hospitalData).first())
             .map { (testCautionLevel, mortalityCautionLevel, hospitalCautionLevel) in
                 let threatAmount = testCautionLevel.rawValue + mortalityCautionLevel.rawValue + hospitalCautionLevel.rawValue
+                print("""
+                🚨
+                     Test Cases Caution Level \(testCautionLevel)
+                     Mortality Caution Level \(mortalityCautionLevel)
+                     Hospital Caution Level \(hospitalCautionLevel)
+                🚨
+                """)
                 return AlertStateData(state: determineRawThreshold(threatAmount), associatedText: "",
                                       caseData: communityData.caseData,
                                       metaData: communityData.metaData,
@@ -44,21 +52,41 @@ extension AlertStateData {
             .eraseToAnyPublisher()
     }
 
-    private static func processTestCases(_ communityData: HHSCommunityData.TestData) -> Future<CautionLevel, Never> {
+    private static func processTestCases(_ testData: HHSCommunityData.TestData) -> Future<CautionLevel, Never> {
         return Future<CautionLevel, Never> { promise in
-            promise(.success(.none))
+            let percentageOfTotalTestsWhichArePositive = (testData.positiveTestsInLast7Days / testData.totalTestsInLast7Days) * 100
+            print("🚨 Percentage of Total Tests which were positive: \(percentageOfTotalTestsWhichArePositive)")
+            switch (percentageOfTotalTestsWhichArePositive) {
+            case 51...100: promise(.success(CautionLevel.stop))
+            case 51...60: promise(.success(CautionLevel.caution))
+            case 30...50: promise(.success(CautionLevel.caution))
+            default: promise(.success(CautionLevel.go))
+            }
+            
         }
     }
 
-    private static func processMortalityData(_ communityData: HHSCommunityData.MortalityData) -> Future<CautionLevel, Never> {
+    private static func processMortalityData(_ mortalityData: HHSCommunityData.MortalityData) -> Future<CautionLevel, Never> {
         return Future<CautionLevel, Never> { promise in
-            promise(.success(.none))
+            print("🚨 Deaths in the last 7 days: \(mortalityData.deathsInTheLast7Days)")
+            switch (mortalityData.deathsInTheLast7Days) {
+            case 400...1000: promise(.success(CautionLevel.caution))
+            case 0...400: promise(.success(CautionLevel.go))
+            default: promise(.success(CautionLevel.stop))
+            }
         }
     }
 
-    private static func processHospitalData(_ communityData: HHSCommunityData.HospitalData) -> Future<CautionLevel, Never>{
+    private static func processHospitalData(_ hospitalData: HHSCommunityData.HospitalData) -> Future<CautionLevel, Never>{
         return Future<CautionLevel, Never> { promise in
-            promise(.success(.none))
+            let icuCovidCases = hospitalData.percentageCovidICUInpatient
+            print("🚨 percentage of ICU Covid \(icuCovidCases)")
+            switch (icuCovidCases) {
+            case 61...100: promise(.success(.stop))
+            case 21...60: promise(.success(.caution))
+            case 0...20: promise(.success(.go))
+            default: promise(.success(.go))
+            }
         }
     }
     

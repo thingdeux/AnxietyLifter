@@ -38,7 +38,10 @@ public class HHSApiService {
             guard let self = self else { return }
             let request = URLRequest(url: HHSApiService.requestUri)
             self.cancellable =
-                URLSession.DataTaskPublisher(request: request, session: .shared)
+                URLSession.DataTaskPublisher(request: request, session: .shared).first()
+                    .print("🌎")
+                    .subscribe(on: DispatchQueue.global())
+                    .receive(on: DispatchQueue.global())
                     .tryMap() { element -> Data in
                         guard let httpResponse = element.response as? HTTPURLResponse,
                             httpResponse.statusCode == 200 else {
@@ -50,9 +53,11 @@ public class HHSApiService {
                     .tryMap() { value -> HHSCommunityData in
                         value.allCommunityData.first!
                     }
+                    .print("💾")
                     .flatMap { (data) in
-                        HHSApiService.storeLatestData(data)
+                        HHSApiService.storeLatestData(data).first()
                     }
+                    .print("🌎")
                     .sink(receiveCompletion: { complete in
                         switch (complete) {
                         case .failure(let error):
@@ -71,19 +76,20 @@ public class HHSApiService {
     }
     
     private typealias StoredSuccessfully = Bool
-    private static func storeLatestData(_ data: HHSCommunityData) -> Future<HHSCommunityData, Error>  {
-        return Future<HHSCommunityData, Error> { promise in
-            let dataToStore = AlertStateData(state: .none, associatedText: "", caseData: data.caseData, metaData: data.metaData, testData: data.testData)
-            let encodedData = try? JSONEncoder().encode(dataToStore)
-            guard let encodedData = encodedData, let userDefaults = UserDefaults(suiteName: Constants.appGroupName) else {
-                print("💾 Unable to encode alert state!!")
-                promise(.failure(UnableToEncodeAlertStateError()))
-                return
+    private static func storeLatestData(_ data: HHSCommunityData) -> AnyPublisher<HHSCommunityData, Error>  {
+        return AlertStateData
+            .analyze(communityData: data)
+            .encode(encoder: JSONEncoder())
+            .tryMap { (encodedData) -> HHSCommunityData in
+                guard let userDefaults = UserDefaults(suiteName: Constants.appGroupName) else {
+                    print("💾 Unable to encode alert state!!")
+                    throw UnableToEncodeAlertStateError()
+                }
+                userDefaults.set(encodedData, forKey: Constants.latestAlertStateKey)
+                print("💾 Stored Latest Data \(data)")
+                return data
             }
-            userDefaults.set(encodedData, forKey: Constants.latestAlertStateKey)
-            print("💾 Stored Latest Data \(data)")
-            promise(.success(data))
-        }
+            .eraseToAnyPublisher()
     }
     
     public static func retrieveLatestStoredData() -> Future <AlertStateData, Error> {

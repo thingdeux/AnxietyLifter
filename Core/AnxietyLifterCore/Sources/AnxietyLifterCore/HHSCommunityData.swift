@@ -72,14 +72,13 @@ public struct HHSCommunityData: Codable {
 // Wrapper Class Definitions
 public extension HHSCommunityData {
     var caseData: CaseData {
-        CaseData(casesInTheLast7Days: casesInTheLast7Days,
-                 deathsInTheLast7Days: deathsInTheLast7Days,
+        CaseData(casesInTheLast7Days: casesInTheLast7Days,                 
                  percentChangeInCases: percentChangeInCases,
                  totalCasesToNow: totalCasesToNow)
     }
     
     var mortalityData: MortalityData {
-        MortalityData(percentChangeInDeaths: percentChangeInDeaths, totalDeathsToNow: totalDeathsToNow)
+        MortalityData(percentChangeInDeaths: percentChangeInDeaths, totalDeathsToNow: totalDeathsToNow, deathsInTheLast7Days: deathsInTheLast7Days)
     }
     
     var hospitalData: HospitalData {
@@ -109,6 +108,7 @@ public extension HHSCommunityData {
     struct MortalityData {
         public let percentChangeInDeaths: Double
         public let totalDeathsToNow: Int
+        public let deathsInTheLast7Days: Int
     }
     
     struct TestData: Codable {
@@ -127,7 +127,6 @@ public extension HHSCommunityData {
     
     struct CaseData: Codable {
         public let casesInTheLast7Days: Int
-        public let deathsInTheLast7Days: Int
         public let percentChangeInCases: Double
         public let totalCasesToNow: Int
     }
