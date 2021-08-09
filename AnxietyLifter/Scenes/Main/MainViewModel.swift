@@ -47,9 +47,7 @@ class MainViewModel: ObservableObject {
                 self.positiveTestCount = "\(data.rawData.testData.positiveTestsInLast7Days)%"
                 self.deathCount = "\(data.rawData.mortalityData.deathsInTheLast7Days)"
                 self.admissionCount = "\(data.rawData.hospitalData.percentageCovidICUInpatient)%"
-                let lastUpdatedDate: Date = Date(timeIntervalSince1970: data.rawData.metaData.lastUpdated)
-                
-//                self.lastUpdated = "\(last))"
+                self.lastUpdated = data.rawData.metaData.lastUpdatedFormatted
             })
     }
 }

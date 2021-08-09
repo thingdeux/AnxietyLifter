@@ -109,5 +109,27 @@ public class HHSApiService {
             }
         }
     }
+    
+    public static func retrieveLatestStoredData(completion: @escaping (WidgetAlertStateData?) -> ()) {
+        DispatchQueue.global().async {
+            guard let encodedData = UserDefaults(suiteName: Constants.appGroupName )?.object(forKey: Constants.latestAlertStateKey) as? Data else {
+                print("💾 Unable to retrieve stored data for key \(Constants.latestAlertStateKey)")
+                completion(nil)
+                return
+            }
+                        
+            if let data = try? JSONDecoder().decode(AlertStateData.self, from: encodedData) {
+                let alertData = WidgetAlertStateData(state: data.state,
+                                     text: (top: "\(data.rawData.testData.positiveTestsInLast7Days)%",
+                                            middle: "\(data.rawData.mortalityData.deathsInTheLast7Days)",
+                                            bottom: "\(data.rawData.hospitalData.percentageCovidICUInpatient)%"),
+                                     lastUpdated: data.rawData.metaData.lastUpdatedFormatted)
+                completion(alertData)
+            } else {
+                print("💾 Unable to retrieve stored data for key \(Constants.latestAlertStateKey)")
+                completion(nil)
+            }
+        }
+    }
 }
 

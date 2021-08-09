@@ -22,9 +22,9 @@ struct WidgetMainView: View {
                     .padding([.top, .bottom], 6)
                 
                 VStack(spacing: 0) {
-                    DataPointPreviewView(text: "100%", image: #imageLiteral(resourceName: "AdmissionIcon"))
-                    DataPointPreviewView(text: "8", image: #imageLiteral(resourceName: "DeathIcon"))
-                    DataPointPreviewView(text: "80%", image: #imageLiteral(resourceName: "HospitalIcon"))
+                    DataPointPreviewView(text: entry.data?.text.top ?? "- -", image: #imageLiteral(resourceName: "AdmissionIcon"))
+                    DataPointPreviewView(text: entry.data?.text.middle ?? "- -", image: #imageLiteral(resourceName: "DeathIcon"))
+                    DataPointPreviewView(text: entry.data?.text.bottom ?? "- -", image: #imageLiteral(resourceName: "HospitalIcon"))
                 }
                 .padding([.top, .bottom], 10)
                 .frame(width: 60)
@@ -48,7 +48,7 @@ private struct DataPointPreviewView: View {
             Text(text)
                 .font(.footnote)
                 .bold()
-                .foregroundColor(.white)                
+                .foregroundColor(.white)
             Spacer()
         }
     }
@@ -56,7 +56,7 @@ private struct DataPointPreviewView: View {
 
 struct WidgetMainView_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetMainView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        WidgetMainView(entry: SimpleEntry(date: Date(), data: Provider.Constants.dataPlaceHolder, relevance: nil))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

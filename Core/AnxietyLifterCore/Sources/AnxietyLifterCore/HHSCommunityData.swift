@@ -18,6 +18,8 @@ public struct HHSDataWrapper: Decodable {
     public let attributes: HHSCommunityData
 }
 
+private let dateFormatter = DateFormatter()
+
 public struct HHSCommunityData: Codable {
 
     // Case Data
@@ -103,6 +105,13 @@ public extension HHSCommunityData {
         public let fipsCode: String
         public let county: String
         public let lastUpdated: Double
+        
+        public var lastUpdatedFormatted: String {
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            dateFormatter.locale = Locale.current
+            let date = Date(timeIntervalSince1970: self.lastUpdated)
+            return dateFormatter.string(from: date)
+        }
     }
     
     struct MortalityData: Codable {

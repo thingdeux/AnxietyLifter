@@ -25,6 +25,19 @@ public struct AlertStateData: Codable {
     }
 }
 
+@available(iOS 13.0.0, *)
+public struct WidgetAlertStateData {
+    public let state: CautionLevel
+    public let text: (top: String, middle: String, bottom: String)
+    public let lastUpdated: String
+    
+    public init(state: CautionLevel, text: (top: String, middle: String, bottom: String), lastUpdated: String) {
+        self.state = state
+        self.text = text
+        self.lastUpdated = lastUpdated
+    }
+}
+
 // MARK: Analysis
 @available(iOS 13.0.0, *)
 extension AlertStateData {
