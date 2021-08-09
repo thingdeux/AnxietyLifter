@@ -11,7 +11,12 @@ import AnxietyLifterCore
 
 class MainViewModel: ObservableObject {
     let service: HHSApiService
-    @Published var latestData: HHSCommunityData?
+    @Published var latestData: AlertStateData?
+    @Published var currentThreatLevel: CautionLevel = .none
+    @Published var admissionCount: String = "- -"
+    @Published var positiveTestCount: String = "- -"
+    @Published var deathCount: String = "- -"
+    @Published var lastUpdated: String = "- -"
     
     private(set) var data: [HHSCommunityData] = []
     private var acquireDataSubscriber: AnyCancellable?
@@ -24,6 +29,9 @@ class MainViewModel: ObservableObject {
         acquireDataSubscriber?.cancel()
         acquireDataSubscriber =
             service.acquireLatestData()
+            .flatMap { _ in
+                return HHSApiService.retrieveLatestStoredData()
+            }
             .print("🅥🅜")
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completed in
@@ -35,6 +43,13 @@ class MainViewModel: ObservableObject {
                 }
             }, receiveValue: { data in
                 self.latestData = data
+                self.currentThreatLevel = data.state
+                self.positiveTestCount = "\(data.rawData.testData.positiveTestsInLast7Days)%"
+                self.deathCount = "\(data.rawData.mortalityData.deathsInTheLast7Days)"
+                self.admissionCount = "\(data.rawData.hospitalData.percentageCovidICUInpatient)%"
+                let lastUpdatedDate: Date = Date(timeIntervalSince1970: data.rawData.metaData.lastUpdated)
+                
+//                self.lastUpdated = "\(last))"
             })
-    }    
+    }
 }

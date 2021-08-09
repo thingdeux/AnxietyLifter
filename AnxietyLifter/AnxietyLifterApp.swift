@@ -11,7 +11,9 @@ import SwiftUI
 struct AnxietyLifterApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView().ignoresSafeArea(.all)
+            MainView()
+                .background(Color.black.opacity(0.9))
+                .ignoresSafeArea(.all)
         }
     }
 }

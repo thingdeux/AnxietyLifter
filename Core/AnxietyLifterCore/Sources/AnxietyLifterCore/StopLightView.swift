@@ -41,7 +41,7 @@ public struct StopLightView: View {
                 // Border
                 Capsule()
                     .foregroundColor(.gray)
-                    .padding(geometry.size.width * 0.02)
+                    .padding(geometry.size.width * 0.01)
                     
                 
                 // Inner Stop Light

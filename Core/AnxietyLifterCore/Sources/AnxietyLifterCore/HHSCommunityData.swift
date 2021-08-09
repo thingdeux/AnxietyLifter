@@ -105,7 +105,7 @@ public extension HHSCommunityData {
         public let lastUpdated: Double
     }
     
-    struct MortalityData {
+    struct MortalityData: Codable {
         public let percentChangeInDeaths: Double
         public let totalDeathsToNow: Int
         public let deathsInTheLast7Days: Int
@@ -115,9 +115,12 @@ public extension HHSCommunityData {
         public let positiveTestsInLast7Days: Double
         public let totalTestsInLast7Days: Double
         public let totalTestsPercentChange: Double
+        public var percentageOfPositiveTests: Double {
+            return (positiveTestsInLast7Days / totalTestsInLast7Days) * 100
+        }
     }
     
-    struct HospitalData {
+    struct HospitalData: Codable {
         public let confirmedCovidAdmissionLast7Days: Int
         public let suspectedCovidAdmissionsToHospitalLast7Days: Int
         public let percentageVentilatorsChange: Double

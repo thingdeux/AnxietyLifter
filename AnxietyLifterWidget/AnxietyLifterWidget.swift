@@ -8,7 +8,6 @@
 import WidgetKit
 import SwiftUI
 import Intents
-import AnxietyLifterCore
 
 struct Provider: IntentTimelineProvider {
     // Initial data on first load
@@ -22,7 +21,7 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -43,40 +42,13 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
-struct AnxietyLifterWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        ZStack {
-            Color.black.opacity(0.90)
-            HStack(spacing: 0) {
-                StopLightView(.go)
-                    .frame(width: 80, height: 140)
-                    .previewContext(WidgetPreviewContext(family: .systemSmall))
-                    .padding(6)
-                
-                VStack {
-                    Text("Updated: 6/12/21")
-                        .font(.caption2)
-                        .foregroundColor(.white)
-                    
-                    Text("Note: Nothing")
-                        .font(.caption2)
-                        .foregroundColor(.white)
-                    Spacer()
-                }
-            }
-        }
-    }
-}
-
 @main
 struct AnxietyLifterWidget: Widget {
     let kind: String = "AnxietyLifterWidget2"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            AnxietyLifterWidgetEntryView(entry: entry)
+            WidgetMainView(entry: entry)
         }
         .configurationDisplayName("Anxiety Lifter")
         .description("Free your Covid-19 Anxiety")
@@ -85,7 +57,7 @@ struct AnxietyLifterWidget: Widget {
 
 struct AnxietyLifterWidget_Previews: PreviewProvider {
     static var previews: some View {
-        AnxietyLifterWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        WidgetMainView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

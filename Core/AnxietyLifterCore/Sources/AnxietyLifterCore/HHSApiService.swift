@@ -49,7 +49,7 @@ public class HHSApiService {
                             }
                         return element.data
                         }
-                    .decode(type: HHSResponse.self, decoder: JSONDecoder())
+                    .decode(type: HHSResponse.self, decoder: JSONDecoder())                    
                     .tryMap() { value -> HHSCommunityData in
                         value.allCommunityData.first!
                     }

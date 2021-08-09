@@ -12,9 +12,7 @@ import Combine
 public struct AlertStateData: Codable {
     public let state: CautionLevel
     public let associatedText: String
-    public let caseData: HHSCommunityData.CaseData
-    public let metaData: HHSCommunityData.MetaData
-    public let testData: HHSCommunityData.TestData
+    public let rawData: HHSCommunityData
     
     fileprivate enum Constants {
         // Weighted assessment based on how many areas of concern there are in a community.
@@ -44,19 +42,18 @@ extension AlertStateData {
                 🚨
                 """)
                 return AlertStateData(state: determineRawThreshold(threatAmount), associatedText: "",
-                                      caseData: communityData.caseData,
-                                      metaData: communityData.metaData,
-                                      testData: communityData.testData)
+                                      rawData: communityData)
 
             }
             .eraseToAnyPublisher()
     }
 
+    /// Determine positive cases caution levels
     private static func processTestCases(_ testData: HHSCommunityData.TestData) -> Future<CautionLevel, Never> {
         return Future<CautionLevel, Never> { promise in
-            let percentageOfTotalTestsWhichArePositive = (testData.positiveTestsInLast7Days / testData.totalTestsInLast7Days) * 100
-            print("🚨 Percentage of Total Tests which were positive: \(percentageOfTotalTestsWhichArePositive)")
-            switch (percentageOfTotalTestsWhichArePositive) {
+            // Find the percentage of new positive cases happening.
+            print("🚨 Percentage of Total Tests which were positive: \(testData.percentageOfPositiveTests)")
+            switch (testData.percentageOfPositiveTests) {
             case 51...100: promise(.success(CautionLevel.stop))
             case 51...60: promise(.success(CautionLevel.caution))
             case 30...50: promise(.success(CautionLevel.caution))
@@ -66,6 +63,7 @@ extension AlertStateData {
         }
     }
 
+    /// Determine mortality caution levels
     private static func processMortalityData(_ mortalityData: HHSCommunityData.MortalityData) -> Future<CautionLevel, Never> {
         return Future<CautionLevel, Never> { promise in
             print("🚨 Deaths in the last 7 days: \(mortalityData.deathsInTheLast7Days)")
@@ -77,10 +75,11 @@ extension AlertStateData {
         }
     }
 
+    /// Determine hospital caution levels
     private static func processHospitalData(_ hospitalData: HHSCommunityData.HospitalData) -> Future<CautionLevel, Never>{
         return Future<CautionLevel, Never> { promise in
             let icuCovidCases = hospitalData.percentageCovidICUInpatient
-            print("🚨 percentage of ICU Covid \(icuCovidCases)")
+            print("🚨 percentage of Inpatient Covid Beds Filled \(icuCovidCases)")
             switch (icuCovidCases) {
             case 61...100: promise(.success(.stop))
             case 21...60: promise(.success(.caution))
