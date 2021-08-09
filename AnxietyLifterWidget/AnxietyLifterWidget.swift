@@ -55,9 +55,16 @@ struct AnxietyLifterWidgetEntryView : View {
                     .previewContext(WidgetPreviewContext(family: .systemSmall))
                     .padding(6)
                 
-                Text("🤙🏽")
-                    .font(.body)
-                    .foregroundColor(.white)
+                VStack {
+                    Text("Updated: 6/12/21")
+                        .font(.caption2)
+                        .foregroundColor(.white)
+                    
+                    Text("Note: Nothing")
+                        .font(.caption2)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
             }
         }
     }

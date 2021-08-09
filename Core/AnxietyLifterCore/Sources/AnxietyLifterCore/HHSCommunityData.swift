@@ -32,7 +32,7 @@ public struct HHSCommunityData: Codable {
     
     // Hospital Data
     private let confirmedCovidAdmissionLast7Days: Int
-    private let suspectedCovidAdmissionAdmissionsToHospitalLast7Days: Int
+    private let suspectedCovidAdmissionsToHospitalLast7Days: Int
     private let percentageVentilatorsChange: Double
     private let percentageICUInpatient: Double
     private let percentageCovidICUInpatient: Double
@@ -60,7 +60,7 @@ public struct HHSCommunityData: Codable {
         case totalTestsInLast7Days = "total_tests_last_7_d"
         case totalTestsPercentChange = "total_tests_pct_change"
         case confirmedCovidAdmissionLast7Days = "conf_covid_admit_last_7_d"
-        case suspectedCovidAdmissionAdmissionsToHospitalLast7Days = "susp_covid_admit_last_7_d"
+        case suspectedCovidAdmissionsToHospitalLast7Days = "susp_covid_admit_last_7_d"
         case percentageVentilatorsChange = "pct_vent_covid"
         case percentageICUInpatient = "pct_inpatient"
         case percentageCovidICUInpatient = "pct_inpatient_covid"
@@ -83,7 +83,7 @@ public extension HHSCommunityData {
     }
     
     var hospitalData: HospitalData {
-        HospitalData(confirmedCovidAdmissionLast7Days: confirmedCovidAdmissionLast7Days, suspectedCovidAdmissionAdmissionsToHospitalLast7Days: suspectedCovidAdmissionAdmissionsToHospitalLast7Days, percentageVentilatorsChange: percentageVentilatorsChange, percentageICUInpatient: percentageICUInpatient, percentageCovidICUInpatient: percentageCovidICUInpatient)
+        HospitalData(confirmedCovidAdmissionLast7Days: confirmedCovidAdmissionLast7Days, suspectedCovidAdmissionsToHospitalLast7Days: suspectedCovidAdmissionsToHospitalLast7Days, percentageVentilatorsChange: percentageVentilatorsChange, percentageICUInpatient: percentageICUInpatient, percentageCovidICUInpatient: percentageCovidICUInpatient)
     }
     
     var metaData: MetaData {
@@ -119,7 +119,7 @@ public extension HHSCommunityData {
     
     struct HospitalData {
         public let confirmedCovidAdmissionLast7Days: Int
-        public let suspectedCovidAdmissionAdmissionsToHospitalLast7Days: Int
+        public let suspectedCovidAdmissionsToHospitalLast7Days: Int
         public let percentageVentilatorsChange: Double
         public let percentageICUInpatient: Double
         public let percentageCovidICUInpatient: Double
@@ -131,13 +131,4 @@ public extension HHSCommunityData {
         public let percentChangeInCases: Double
         public let totalCasesToNow: Int
     }
-}
-
-@available(iOS 13.0.0, *)
-public struct AlertStateData: Codable {
-    public let state: StopLightView.State
-    public let associatedText: String
-    public let caseData: HHSCommunityData.CaseData
-    public let metaData: HHSCommunityData.MetaData
-    public let testData: HHSCommunityData.TestData
 }

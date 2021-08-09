@@ -31,7 +31,7 @@ public class HHSApiService {
         public static let latestAlertStateKey = "alertStateLatest"
     }
     
-    public func acquireLatestData() -> Future<HHSCommunityData, Error> {
+    public final func acquireLatestData() -> Future<HHSCommunityData, Error> {
         cancellable?.cancel()
         
         return Future<HHSCommunityData, Error> { [weak self] promise in

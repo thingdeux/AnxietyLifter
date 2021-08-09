@@ -8,17 +8,18 @@
 import SwiftUI
 
 @available(iOS 13.0.0, *)
+public enum CautionLevel: Int, Codable {
+    case none = 0
+    case go = 1
+    case caution = 3
+    case stop = 6
+}
+
+@available(iOS 13.0.0, *)
 public struct StopLightView: View {
-    public enum State: Int, Codable {
-        case go = 0
-        case stop = 1
-        case caution = 2
-        case none = 3
-    }
+    private let activeLight: CautionLevel
     
-    private let activeLight: State
-    
-    public init(_ activeLight: State) {
+    public init(_ activeLight: CautionLevel) {
         self.activeLight = activeLight
     }
     
