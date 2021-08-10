@@ -12,8 +12,8 @@ import AnxietyLifterCore
 
 struct Provider: IntentTimelineProvider {
     enum Constants {
-        static let dataPlaceHolder = WidgetAlertStateData(state: .none,
-                                                          text: ("- -", "- -", "- -"),
+        static let dataPlaceHolder = WidgetAlertStateData(state: .caution,
+                                                          text: ("0%", "0", "10%"),
                                                           lastUpdated: "")
     }
     
@@ -33,7 +33,7 @@ struct Provider: IntentTimelineProvider {
             print("🔧 Retrieving Actual Data for Widget")
             HHSApiService.retrieveLatestStoredData { data in
                 let dataToPrint: String = data.debugDescription ?? "Uh Oh"
-                print("🔧 Data Retrieved for Widget \(dataToPrint)")
+                print("🔧 Data Retrieved for Widget \(dataToPrint)")                
                 completion(SimpleEntry(date: Date(), data: data, relevance: nil))
             }
         }
@@ -61,7 +61,8 @@ struct Provider: IntentTimelineProvider {
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
-        print(currentDate)
+        print("Now ->> \(currentDate)")
+        print("TimeLines -> \(timeline)")
         completion(timeline)
     }
 }
@@ -82,6 +83,7 @@ struct AnxietyLifterWidget: Widget {
         }
         .configurationDisplayName("Anxiety Lifter")
         .description("Free your Covid-19 Anxiety")
+        .supportedFamilies([.systemSmall])
     }
 }
 

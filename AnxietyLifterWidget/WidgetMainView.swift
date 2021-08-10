@@ -17,7 +17,7 @@ struct WidgetMainView: View {
         ZStack {
             Color.black.opacity(0.90)
             HStack(spacing: 8) {
-                StopLightView(.go)
+                StopLightView(entry.data?.state ?? .none)
                     .frame(width: 60, height: 140)
                     .padding([.top, .bottom], 6)
                 
