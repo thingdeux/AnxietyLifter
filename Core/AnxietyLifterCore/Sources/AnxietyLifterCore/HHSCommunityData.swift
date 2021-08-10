@@ -18,8 +18,6 @@ public struct HHSDataWrapper: Decodable {
     public let attributes: HHSCommunityData
 }
 
-private let dateFormatter = DateFormatter()
-
 public struct HHSCommunityData: Codable {
 
     // Case Data
@@ -47,7 +45,7 @@ public struct HHSCommunityData: Codable {
     // MetaData
     private let fipsCode: String
     private let county: String
-    private let lastUpdated: Double
+    private let lastUpdated: TimeInterval
     
     enum CodingKeys: String, CodingKey {
         case fipsCode = "FIPS_code"
@@ -104,12 +102,14 @@ public extension HHSCommunityData {
     struct MetaData: Codable {
         public let fipsCode: String
         public let county: String
-        public let lastUpdated: Double
+        public let lastUpdated: TimeInterval
         
-        public var lastUpdatedFormatted: String {
-            dateFormatter.dateFormat = "MM/dd/yyyy"
-            dateFormatter.locale = Locale.current
-            let date = Date(timeIntervalSince1970: self.lastUpdated)
+        public func getLastUpdatedDateFormatted() -> String {
+            let date = Date(timeIntervalSince1970: self.lastUpdated / 1000.0)
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
+            dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+            dateFormatter.timeZone = .current
             return dateFormatter.string(from: date)
         }
     }

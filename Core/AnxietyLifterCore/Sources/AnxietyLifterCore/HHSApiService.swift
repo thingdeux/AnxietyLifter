@@ -49,7 +49,7 @@ public class HHSApiService {
                             }
                         return element.data
                         }
-                    .decode(type: HHSResponse.self, decoder: JSONDecoder())                    
+                    .decode(type: HHSResponse.self, decoder: JSONDecoder())
                     .tryMap() { value -> HHSCommunityData in
                         value.allCommunityData.first!
                     }
@@ -122,7 +122,7 @@ public class HHSApiService {
                                      text: (top: "\(data.rawData.testData.positiveTestsInLast7Days)%",
                                             middle: "\(data.rawData.mortalityData.deathsInTheLast7Days)",
                                             bottom: "\(data.rawData.hospitalData.percentageCovidICUInpatient)%"),
-                                     lastUpdated: data.rawData.metaData.lastUpdatedFormatted)
+                                            lastUpdated: data.rawData.metaData.getLastUpdatedDateFormatted())
                 completion(alertData)
             } else {
                 print("💾 Unable to retrieve stored data for key \(Constants.latestAlertStateKey)")
