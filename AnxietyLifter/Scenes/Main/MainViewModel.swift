@@ -26,10 +26,6 @@ class MainViewModel: ObservableObject {
     }
     
     func onAppear() {
-        HHSApiService.retrieveLatestStoredData { data in
-            print("💾 RETRIEVED LATEST STORED DATA \(data.debugDescription)")
-        }
-        
         acquireDataSubscriber?.cancel()
         acquireDataSubscriber =
             service.acquireLatestData()
