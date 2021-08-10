@@ -11,20 +11,20 @@ import WidgetKit
 import AnxietyLifterCore
 
 struct WidgetMainView: View {
-    var entry: Provider.Entry
+    let entry: Provider.Entry
 
     var body: some View {
         ZStack {
             Color.black.opacity(0.90)
             HStack(spacing: 8) {
-                StopLightView(entry.data?.state ?? .none)
+                StopLightView(entry.data.state)
                     .frame(width: 60, height: 140)
                     .padding([.top, .bottom], 6)
                 
                 VStack(spacing: 0) {
-                    DataPointPreviewView(text: entry.data?.text.top ?? "- -", image: #imageLiteral(resourceName: "AdmissionIcon"))
-                    DataPointPreviewView(text: entry.data?.text.middle ?? "- -", image: #imageLiteral(resourceName: "DeathIcon"))
-                    DataPointPreviewView(text: entry.data?.text.bottom ?? "- -", image: #imageLiteral(resourceName: "HospitalIcon"))
+                    DataPointPreviewView(text: entry.data.text.top, image: #imageLiteral(resourceName: "AdmissionIcon"))
+                    DataPointPreviewView(text: entry.data.text.middle, image: #imageLiteral(resourceName: "DeathIcon"))
+                    DataPointPreviewView(text: entry.data.text.bottom, image: #imageLiteral(resourceName: "HospitalIcon"))
                 }
                 .padding([.top, .bottom], 10)
                 .frame(width: 60)

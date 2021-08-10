@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		560DA1A726C0FED200B94E31 /* WidgetMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560DA1A526C0FE3700B94E31 /* WidgetMainView.swift */; };
+		560DA1AB26C2629700B94E31 /* WidgetTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560DA1A926C2629200B94E31 /* WidgetTimelineProvider.swift */; };
 		56DE712626C036570059BD7E /* AnxietyLifterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE712526C036570059BD7E /* AnxietyLifterApp.swift */; };
 		56DE712826C036570059BD7E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE712726C036570059BD7E /* MainView.swift */; };
 		56DE712A26C036580059BD7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56DE712926C036580059BD7E /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		560DA1A526C0FE3700B94E31 /* WidgetMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMainView.swift; sourceTree = "<group>"; };
+		560DA1A926C2629200B94E31 /* WidgetTimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTimelineProvider.swift; sourceTree = "<group>"; };
 		56DE712226C036570059BD7E /* AnxietyLifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnxietyLifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DE712526C036570059BD7E /* AnxietyLifterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyLifterApp.swift; sourceTree = "<group>"; };
 		56DE712726C036570059BD7E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				560DA1A526C0FE3700B94E31 /* WidgetMainView.swift */,
+				560DA1A926C2629200B94E31 /* WidgetTimelineProvider.swift */,
 				56DE714C26C045190059BD7E /* AnxietyLifterWidget.swift */,
 				56DE714E26C045190059BD7E /* AnxietyLifterWidget.intentdefinition */,
 				56DE714F26C045190059BD7E /* Assets.xcassets */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56DE714D26C045190059BD7E /* AnxietyLifterWidget.swift in Sources */,
+				560DA1AB26C2629700B94E31 /* WidgetTimelineProvider.swift in Sources */,
 				560DA1A726C0FED200B94E31 /* WidgetMainView.swift in Sources */,
 				56DE715226C045190059BD7E /* AnxietyLifterWidget.intentdefinition in Sources */,
 			);

@@ -27,7 +27,7 @@ public class HHSApiService {
     public static let shared: HHSApiService = HHSApiService()
     
     public enum Constants {
-        public static let appGroupName = "group.land.josh.anxietyLifter"
+        public static let appGroupName = "group.land.josh.AnxietyLifter"
         public static let latestAlertStateKey = "alertStateLatest"
     }
     
@@ -111,7 +111,6 @@ public class HHSApiService {
     }
     
     public static func retrieveLatestStoredData(completion: @escaping (WidgetAlertStateData?) -> ()) {
-        DispatchQueue.global().async {
             guard let encodedData = UserDefaults(suiteName: Constants.appGroupName )?.object(forKey: Constants.latestAlertStateKey) as? Data else {
                 print("💾 Unable to retrieve stored data for key \(Constants.latestAlertStateKey)")
                 completion(nil)
@@ -129,7 +128,6 @@ public class HHSApiService {
                 print("💾 Unable to retrieve stored data for key \(Constants.latestAlertStateKey)")
                 completion(nil)
             }
-        }
     }
 }
 
